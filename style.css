@@ -1,0 +1,338 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background: #dce8f5;
+
+    font-family: Arial, sans-serif;
+}
+
+
+.calculator {
+    background: #333333;
+
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+
+#display {
+    width: 100%;
+    height: 60px;
+
+    font-size: 30px;
+    text-align: right;
+
+    margin-bottom: 15px;
+    box-sizing: border-box;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 10px;
+}
+
+
+/* ===== BUTTONS ===== */
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+
+button {
+    height: 60px;
+
+    font-size: 22px;
+
+    background: #ff00ea;
+    color: #000000;
+
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    /* SMOOTH ANIMATION */
+    transition:
+        transform 0.12s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.932);
+}
+
+
+/* MOUSE OVER */
+
+button:hover {
+    transform: translateY(-2px);
+
+    background: #afe8a8;
+
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/* BUTTON PRESS */
+
+button:active {
+    transform: scale(0.94);
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.zero {
+    grid-column: span 2;
+}  
+/* ===== HAPPY BRAIN ===== */
+
+body.happy-brain::before {
+    background-image: url("happy-brain.png");
+    opacity: 0.18;
+    transform: scale(1.05);
+}    
+/* ===== THEME CONTROLS ===== */
+
+.theme-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.theme-controls button {
+    width: 50px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.theme-controls select {
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+/* ===== DARK MODE ===== */
+
+body.dark {
+    background: #111827;
+}
+
+body.dark .calculator {
+    background: #1f2937;
+}
+
+body.dark #display {
+    background: #374151;
+    color: white;
+}
+
+
+/* ===== BLUE THEME ===== */
+
+body.blue .calculator {
+    background: #0f172a;
+}
+
+body.blue button {
+    background: #38bdf8;
+}
+
+
+/* ===== PURPLE THEME ===== */
+
+body.purple .calculator {
+    background: #2e1065;
+}
+
+body.purple button {
+    background: #c084fc;
+}
+
+
+/* ===== GREEN THEME ===== */
+
+body.green .calculator {
+    background: #064e3b;
+}
+
+body.green button {
+    background: #6ee7b7;
+}
+
+
+/* ===== GOLD THEME ===== */
+
+body.gold .calculator {
+    background: #292524;
+}
+
+body.gold button {
+    background: #fbbf24;
+} 
+.theme-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    z-index: 100;
+}
+
+.theme-controls button {
+    width: 50px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.theme-controls select {
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.calculator {
+    position: relative;
+    margin: auto;
+    width: 300px;
+    box-sizing: border-box;
+
+    animation: calculatorOpen 0.6s ease;
+}
+
+@keyframes calculatorOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* DISPLAY RESULT ANIMATION */
+
+#display.result-animation {
+    animation: resultPop 0.3s ease;
+}
+
+@keyframes resultPop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ===== SCIENTIFIC MODE ===== */
+
+.scientific-toggle {
+    width: 100%;
+    height: 45px;
+    margin-bottom: 10px;
+    background: #8b5cf6;
+    color: white;
+}
+
+.scientific-buttons {
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.scientific-buttons button {
+    height: 50px;
+    font-size: 18px;
+}
+
+.scientific-buttons.show {
+    display: grid;
+}
+/* ===== CENTER CALCULATOR FIX ===== */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.calculator {
+    position: relative;
+    margin: auto;
+
+    width: 300px;
+    box-sizing: border-box;
+
+    transform: none;
+}
+
+/* Remove unwanted extra horizontal box/overflow */
+
+.scientific-buttons {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.buttons {
+    width: 100%;
+    box-sizing: border-box;
+}  /* ===== FINAL OVERFLOW FIX ===== */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    width: 300px;
+    max-width: 300px;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* Prevent anything from extending outside */
+
+.calculator * {
+    max-width: 100%;
+    box-sizing: border-box;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NAMMA Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- THEME CONTROLS -->
+    <div class="theme-controls">
+
+        <button onclick="toggleTheme()">🌙</button>
+
+        <select onchange="changeTheme(this.value)">
+            <option value="default">Default</option>
+            <option value="blue">Ocean Blue</option>
+            <option value="purple">Purple</option>
+            <option value="green">Mint Green</option>
+            <option value="gold">Luxury Gold</option>
+        </select>
+
+    </div>
+
+
+    <!-- CALCULATOR -->
+    <div class="calculator">
+
+        <input type="text" id="display" readonly>
+
+        <!-- SCIENTIFIC TOGGLE -->
+        <button class="scientific-toggle" onclick="toggleScientific()">
+            SCI
+        </button>
+
+
+        <!-- SCIENTIFIC BUTTONS -->
+        <div class="scientific-buttons" id="scientificButtons">
+
+            <button onclick="addScientific('sqrt(')">√</button>
+            <button onclick="addScientific('sin(')">sin</button>
+            <button onclick="addScientific('cos(')">cos</button>
+            <button onclick="addScientific('tan(')">tan</button>
+
+            <button onclick="addScientific('log(')">log</button>
+            <button onclick="addScientific('ln(')">ln</button>
+            <button onclick="addScientific('(')">(</button>
+            <button onclick="addScientific(')')">)</button>
+
+        </div>
+
+
+        <!-- NORMAL BUTTONS -->
+        <div class="buttons">
+
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="deleteLast()">⌫</button>
+            <button onclick="addValue('%')">%</button>
+            <button onclick="addValue('/')">÷</button>
+
+            <button onclick="addValue('7')">7</button>
+            <button onclick="addValue('8')">8</button>
+            <button onclick="addValue('9')">9</button>
+            <button onclick="addValue('*')">×</button>
+
+            <button onclick="addValue('4')">4</button>
+            <button onclick="addValue('5')">5</button>
+            <button onclick="addValue('6')">6</button>
+            <button onclick="addValue('-')">−</button>
+
+            <button onclick="addValue('1')">1</button>
+            <button onclick="addValue('2')">2</button>
+            <button onclick="addValue('3')">3</button>
+            <button onclick="addValue('+')">+</button>
+
+            <button onclick="addValue('0')" class="zero">0</button>
+            <button onclick="addValue('.')">.</button>
+            <button onclick="calculate()">=</button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
